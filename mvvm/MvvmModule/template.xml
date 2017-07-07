@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<template
+        format="5"
+        revision="1"
+        name="MVVM Module"
+        description="Creates a new MVVM module.">
+
+    <category value="MVVM"/>
+
+    <parameter
+            id="className"
+            name="Name"
+            type="string"
+            default="Main"
+            help="The name of new module (without *Activity postfix)"/>
+
+    <parameter
+            id="isLauncher"
+            name="Launcher Activity"
+            type="boolean"
+            default="false"
+            help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"/>
+
+    <parameter
+            id="layoutName"
+            name="Layout Name"
+            type="string"
+            suggest="activity_${className?lower_case}"
+            constraints="layout|unique|nonempty"
+            default="activity_main"
+            help="The name of the layout to create for the activity"/>
+
+    <parameter
+            id="packageName"
+            name="Package name"
+            type="string"
+            constraints="package"
+            default="com.mycompany.myapp"/>
+
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>
